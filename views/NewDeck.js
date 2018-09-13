@@ -19,11 +19,10 @@ class NewDeck extends Component {
                 questions: [],
             }
             this.props.addDeck(payload);
-
             saveDeckTitle(payload);
             this.toOverview();
         } else {
-            Alert.alert('You need to provide a title!');
+            Alert.alert('Please, provide a title!');
         }
     }
 
@@ -47,7 +46,7 @@ class NewDeck extends Component {
             <ScrollView scrollEnabled={false}>
                 <KeyboardAvoidingView behavior='padding' style={styles.container}>
                     <View style={{ flex: 1 }}>
-                        <Text style={styles.text}>Insert the title of your new deck?</Text>
+                        <Text style={styles.text}>Enter the Name of Your Deck:</Text>
                     </View>
                     <View style={styles.input}>
                         <TextInput
@@ -58,7 +57,7 @@ class NewDeck extends Component {
                     </View>
                     <View style={styles.button}>
                         <TextButton onPress={this.onSubmitHandler}>
-                            Insert Deck
+                            Submit
                         </TextButton>
                     </View>
                 </KeyboardAvoidingView>
@@ -91,4 +90,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect(null, { addDeck })(NewDeck); 
+export default connect(null, { addDeck })(NewDeck);

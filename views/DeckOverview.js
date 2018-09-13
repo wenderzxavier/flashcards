@@ -24,7 +24,7 @@ class DeckOverview extends Component {
     }
     generateDecks = (decks) => {
         let deckArray = []
-
+        
         Object.keys(decks).forEach((deck, i) => {
             const cards = decks[deck].questions ? decks[deck].questions.length : 0;
             const title = decks[deck].title;
@@ -46,7 +46,7 @@ class DeckOverview extends Component {
         const { decks } = this.props;
         return (
             <View>
-                <Text style={styles.heading}>Decks Overview.</Text>
+                <Text style={styles.heading}>Decks that you can chose from:</Text>
                 {
                     decks
                     && this.generateDecks(decks)

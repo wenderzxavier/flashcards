@@ -41,6 +41,7 @@ class DeckDetail extends Component {
         }))
     }
     render() {
+        const { title } = this.props.navigation.state.params;
         return (
             <View style={styles.container}>
                 <View style={styles.text}>
@@ -48,8 +49,11 @@ class DeckDetail extends Component {
                         {this.state.title}
                     </Text>
                     <Text style={styles.cards}>
-                        {this.props.decks[title] ? this.props.decks[title].questions.length : 0}
-                        cards
+                        {
+                            this.props.decks[title] ?
+                                this.props.decks[title].questions.length :
+                                0
+                        } cards
                     </Text>
                 </View>
                 <View style={styles.buttons}>
@@ -57,6 +61,7 @@ class DeckDetail extends Component {
                         Add Card
                     </TextButton>
                     {
+                        // Makes sure you cant start a quiz if there are no cards
                         this.state.cards.length > 0
                         &&
                         <TextButton onPress={() => { this.navigateStartQuiz(this.state.title) }}>
@@ -64,7 +69,7 @@ class DeckDetail extends Component {
                         </TextButton>
                     }
                     <TextButton onPress={this.navigateOverview}>
-                        Back To Overview
+                        Go to Overview
                     </TextButton>
                 </View>
             </View>
