@@ -24,7 +24,7 @@ class DeckOverview extends Component {
     }
     generateDecks = (decks) => {
         let deckArray = []
-        
+
         Object.keys(decks).forEach((deck, i) => {
             const cards = decks[deck].questions ? decks[deck].questions.length : 0;
             const title = decks[deck].title;
@@ -64,10 +64,8 @@ const styles = StyleSheet.create({
     }
 })
 
-function mapStateToProps (decks) {
-    return {
-        decks
-    };
-}
+const mapStateToProps = (decks) => ({
+    decks
+})
 
 export default connect(mapStateToProps)(DeckOverview);
