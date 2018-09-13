@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-    Text,
-    View,
-    StyleSheet
-} from 'react-native';
-
+import { Text, View, StyleSheet } from 'react-native';
 import { getDeck, clearLocalNotification, setLocalNotification } from '../utils/api';
 import { orange } from '../utils/colors';
 import TextButton from '../components/TextButton';
@@ -29,8 +24,6 @@ export default class Questions extends Component {
                     activeCard: results.questions[0]
                 })
             })
-        
-        // Reschedules upcoming notifications to next day
         clearLocalNotification()
             .then(setLocalNotification);
     }
@@ -38,7 +31,6 @@ export default class Questions extends Component {
     correct = () => {
         const index = this.state.deck.questions.indexOf(this.state.activeCard);
         let newScore = this.state.score;
-        // I do this instead of .push in case I want to be able to go back and forth through the questions
         newScore[index] = 1;
 
         this.setState({
@@ -50,7 +42,6 @@ export default class Questions extends Component {
     incorrect = () => {
         const index = this.state.deck.questions.indexOf(this.state.activeCard);
         let newScore = this.state.score;
-        // I do this instead of .push in case I want to be able to go back and forth through the questions
         newScore[index] = 0;
 
         this.setState({
@@ -109,43 +100,43 @@ export default class Questions extends Component {
                 </View>
                 {
                     !this.state.viewScore
-                    ?
-                    <View style={{flex: 4}}>
-                        {
-                            !this.state.viewAnswer
-                            ?
-                            <View style={styles.question}>
-                                <Text style={styles.text}>
-                                    {this.state.activeCard.question}
+                        ?
+                        <View style={{ flex: 4 }}>
+                            {
+                                !this.state.viewAnswer
+                                    ?
+                                    <View style={styles.question}>
+                                        <Text style={styles.text}>
+                                            {this.state.activeCard.question}
+                                        </Text>
+                                        <Text
+                                            style={styles.shiftView}
+                                            onPress={() => this.setState({ viewAnswer: !this.state.viewAnswer })}>
+                                            View Answer
                                 </Text>
-                                <Text
-                                    style={styles.shiftView}
-                                    onPress={() => this.setState({viewAnswer: !this.state.viewAnswer})}>
-                                    View Answer
+                                    </View>
+                                    :
+                                    <View style={styles.question}>
+                                        <Text style={styles.text}>
+                                            {this.state.activeCard.answer}
+                                        </Text>
+                                        <Text
+                                            style={styles.shiftView}
+                                            onPress={() => this.setState({ viewAnswer: !this.state.viewAnswer })}>
+                                            View Question
                                 </Text>
-                            </View>
-                            :
-                            <View style={styles.question}>
-                                <Text style={styles.text}>
-                                    {this.state.activeCard.answer}
-                                </Text>
-                                <Text
-                                    style={styles.shiftView}
-                                    onPress={() => this.setState({viewAnswer: !this.state.viewAnswer})}>
-                                    View Question
-                                </Text>
-                            </View>
-                        }
-                        <View style={styles.buttons}>
-                            <TextButton onPress={this.correct}>
-                                Correct
+                                    </View>
+                            }
+                            <View style={styles.buttons}>
+                                <TextButton onPress={this.correct}>
+                                    Correct
                             </TextButton>
-                            <TextButton onPress={this.incorrect}>
-                                Incorrect
-                            </TextButton> 
+                                <TextButton onPress={this.incorrect}>
+                                    Incorrect
+                            </TextButton>
+                            </View>
                         </View>
-                    </View>
-                    :
+                        :
                         <View style={styles.score}>
                             <Text style={styles.text}>Your score was:</Text>
                             <Text style={styles.text}>
