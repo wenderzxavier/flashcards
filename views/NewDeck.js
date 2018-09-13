@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
-import { View,
-    Text,
-    StyleSheet,
-    KeyboardAvoidingView,
-    ScrollView,
-    Alert
-} from 'react-native';
+import { View, Text, StyleSheet, KeyboardAvoidingView, ScrollView, Alert } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
-
 import TextButton from '../components/TextButton';
 import TextInput from '../components/TextInput';
 import { addDeck } from '../actions';
 import { saveDeckTitle } from '../utils/api';
-import { generateId } from '../utils/helpers';
-
 
 class NewDeck extends Component {
     state = {
@@ -50,7 +41,7 @@ class NewDeck extends Component {
         return (
             <ScrollView scrollEnabled={false}>
                 <KeyboardAvoidingView behavior='padding' style={styles.container}>
-                    <View style={{flex: 1}}>
+                    <View style={{ flex: 1 }}>
                         <Text style={styles.text}>What is the title of your new deck?</Text>
                     </View>
                     <View style={styles.input}>

@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import {
-    Text,
-    View,
-    StyleSheet,
-    ScrollView,
-    KeyboardAvoidingView,
-    Alert
-} from 'react-native';
+import { Text, View, StyleSheet, ScrollView, KeyboardAvoidingView, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
-
 import { addCardToDeck } from '../utils/api';
 import { addCard } from '../actions';
 import TextButton from '../components/TextButton';
@@ -47,7 +39,7 @@ class AddCard extends Component {
         return (
             <ScrollView scrollEnabled={false}>
                 <KeyboardAvoidingView behaviour='padding' style={styles.container}>
-                    <View style={{flex: 1}}>
+                    <View style={{ flex: 1 }}>
                         <View style={styles.input}>
                             <Text>Question:</Text>
                             <TextInput autoFocus={false} value={question} onChange={(value) => this.setState({ question: value })} />

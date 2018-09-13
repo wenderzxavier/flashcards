@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {
-    View,
-    Text,
-    StyleSheet
-} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 import TextButton from '../components/TextButton';
@@ -52,14 +48,14 @@ class DeckDetail extends Component {
                     <Text style={styles.cards}>{this.state.cards ? this.state.cards.length : 0} cards</Text>
                 </View>
                 <View style={styles.buttons}>
-                    <TextButton onPress={() => {this.navigateAddCards(this.state.title)}}>
+                    <TextButton onPress={() => { this.navigateAddCards(this.state.title) }}>
                         Add Card
                     </TextButton>
                     {
                         // Makes sure you cant start a quiz if there are no cards
                         this.state.cards.length > 0
-                        && 
-                        <TextButton onPress={() => {this.navigateStartQuiz(this.state.title)}}>
+                        &&
+                        <TextButton onPress={() => { this.navigateStartQuiz(this.state.title) }}>
                             Start Quiz
                         </TextButton>
                     }
@@ -97,7 +93,7 @@ const styles = StyleSheet.create({
     }
 });
 
-function mapStateToProps (decks) {
+function mapStateToProps(decks) {
     return {
         decks
     };
