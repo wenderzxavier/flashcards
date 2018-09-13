@@ -18,9 +18,10 @@ class NewDeck extends Component {
                 title: this.state.title,
                 questions: [],
             }
-            this.props.dispatch(addDeck(payload));
+            this.props.addDeck(payload);
+
             saveDeckTitle(payload);
-            this.toHome();
+            this.toOverview();
         } else {
             Alert.alert('You need to provide a title!');
         }
@@ -30,9 +31,13 @@ class NewDeck extends Component {
         this.setState({ title: value });
     }
 
-    toHome = () => {
-        this.props.navigation.dispatch(NavigationActions.back({
-            key: 'NewDeck'
+    toOverview = () => {
+        this.props.navigation.dispatch(NavigationActions.navigate({
+            routeName: 'DeckDetail',
+            params: {
+                title: this.state.title,
+                cards: 0
+            }
         }));
     }
 
@@ -86,10 +91,4 @@ const styles = StyleSheet.create({
     }
 });
 
-function mapStateToProps(state) {
-    return {
-
-    };
-}
-
-export default connect(mapStateToProps)(NewDeck);
+export default connect(null, { addDeck })(NewDeck); 

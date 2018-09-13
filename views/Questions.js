@@ -72,21 +72,16 @@ export default class Questions extends Component {
     }
 
     endQuiz = () => {
-        this.props.navigation.dispatch(NavigationActions.navigate({
-            routeName: 'DeckDetail',
-            params: {
-                title: this.state.deck.title,
-                cards: this.state.deck.questions.length,
-            }
-        }));
+        this.props.navigation.goBack();
     }
 
     restart = () => {
-        this.props.navigation.dispatch(NavigationActions.navigate({
-            routeName: 'Questions',
-            params: {
-                title: this.state.deck.title
-            }
+        this.setState((prevState) => ({
+            activeCard: prevState.deck.questions[0],
+            score: [],
+            totalScore: 0,
+            viewScore: false,
+            viewAnswer: false,
         }));
     }
 
