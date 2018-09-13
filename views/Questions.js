@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { getDeck, clearLocalNotification, setLocalNotification } from '../utils/api';
-import { orange } from '../utils/colors';
+import { blue } from '../utils/colors';
 import TextButton from '../components/TextButton';
 
 export default class Questions extends Component {
@@ -176,6 +176,6 @@ const styles = StyleSheet.create({
     },
     shiftView: {
         textAlign: 'center',
-        color: orange
+        color: blue
     }
 })

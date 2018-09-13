@@ -3,7 +3,7 @@ import { View, StatusBar } from 'react-native';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { Constants } from 'expo';
-import { red } from './utils/colors';
+import { purple } from './utils/colors';
 import reducer from './reducers';
 import { MainNavigator } from './utils/navigators';
 
@@ -20,7 +20,7 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducer)}>
         <View style={{flex: 1}}>
-          <FlashStatusBar backgroundColor={red} barStyle='light-content' />
+          <FlashStatusBar backgroundColor={purple} barStyle='light-content' />
           <MainNavigator />
         </View>
       </Provider>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { red, white } from '../utils/colors';
+import { purple, white } from '../utils/colors';
 
 export default function TextButton ({ children, onPress, style = {} }) {
     return (
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
     },
     button: {
-        backgroundColor: red,
+        backgroundColor: purple,
         borderRadius: 7,
         height: 45,
         marginLeft: 40,
