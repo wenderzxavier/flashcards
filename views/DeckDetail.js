@@ -44,15 +44,19 @@ class DeckDetail extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.text}>
-                    <Text style={styles.title}>{this.state.title}</Text>
-                    <Text style={styles.cards}>{this.state.cards ? this.state.cards.length : 0} cards</Text>
+                    <Text style={styles.title}>
+                        {this.state.title}
+                    </Text>
+                    <Text style={styles.cards}>
+                        {this.props.decks[title] ? this.props.decks[title].questions.length : 0}
+                        cards
+                    </Text>
                 </View>
                 <View style={styles.buttons}>
                     <TextButton onPress={() => { this.navigateAddCards(this.state.title) }}>
                         Add Card
                     </TextButton>
                     {
-                        // Makes sure you cant start a quiz if there are no cards
                         this.state.cards.length > 0
                         &&
                         <TextButton onPress={() => { this.navigateStartQuiz(this.state.title) }}>
@@ -93,10 +97,8 @@ const styles = StyleSheet.create({
     }
 });
 
-function mapStateToProps(decks) {
-    return {
-        decks
-    };
-}
+const mapStateToProps = (decks) => ({
+    decks
+})
 
 export default connect(mapStateToProps)(DeckDetail);

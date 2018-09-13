@@ -46,7 +46,7 @@ class DeckOverview extends Component {
         const { decks } = this.props;
         return (
             <View>
-                <Text style={styles.heading}>Decks that you can chose from.</Text>
+                <Text style={styles.heading}>Decks Overview.</Text>
                 {
                     decks
                     && this.generateDecks(decks)

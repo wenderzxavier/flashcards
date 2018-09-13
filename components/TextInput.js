@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
-import { 
-    StyleSheet,
-    AppRegistry,
-    TextInput,
-    Keyboard,
-} from 'react-native';
-
+import React from 'react';
+import { StyleSheet, TextInput, } from 'react-native';
 import { gray, white } from '../utils/colors';
 
-export default function UselessTextInput ({ autoFocus, value, onChange }) {
+export default function UselessTextInput({ autoFocus, value, onChange }) {
     return (
-            <TextInput
-                style={styles.textInput}
-                onChangeText={onChange}
-                value={value}
-                autoFocus={autoFocus}
-            />
+        <TextInput
+            style={styles.textInput}
+            onChangeText={onChange}
+            value={value}
+            autoFocus={autoFocus}
+        />
     );
 }
 

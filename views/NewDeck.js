@@ -47,7 +47,7 @@ class NewDeck extends Component {
             <ScrollView scrollEnabled={false}>
                 <KeyboardAvoidingView behavior='padding' style={styles.container}>
                     <View style={{ flex: 1 }}>
-                        <Text style={styles.text}>What is the title of your new deck?</Text>
+                        <Text style={styles.text}>Insert the title of your new deck?</Text>
                     </View>
                     <View style={styles.input}>
                         <TextInput
@@ -58,7 +58,7 @@ class NewDeck extends Component {
                     </View>
                     <View style={styles.button}>
                         <TextButton onPress={this.onSubmitHandler}>
-                            Submit
+                            Insert Deck
                         </TextButton>
                     </View>
                 </KeyboardAvoidingView>

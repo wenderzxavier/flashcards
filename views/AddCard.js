@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView, KeyboardAvoidingView, Alert } from 'react-native';
 import { connect } from 'react-redux';
-import { NavigationActions } from 'react-navigation';
 import { addCardToDeck } from '../utils/api';
 import { addCard } from '../actions';
 import TextButton from '../components/TextButton';
@@ -24,7 +23,7 @@ class AddCard extends Component {
             addCardToDeck(title, card);
             this.props.navigation.goBack();
         } else {
-            Alert.alert('You need both a question and an answer!');
+            Alert.alert('You need to enter a question and an answer!');
         }
     }
 

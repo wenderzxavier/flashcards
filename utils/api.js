@@ -41,21 +41,19 @@ export function addCardToDeck(title, card) {
         });
 }
 
-function createNotification() {
-    return {
-        title: 'Do a quiz!',
-        body: "🤓 don't forget to do a quiz today",
-        ios: {
-            sound: true,
-        },
-        android: {
-            sound: true,
-            priority: 'high',
-            sticky: false,
-            vibrate: true,
-        }
-    };
-}
+const createNotification = () => ({
+    title: 'Do a quiz today!',
+    body: " Don't forget to do a quiz today",
+    ios: {
+        sound: true,
+    },
+    android: {
+        sound: true,
+        priority: 'high',
+        sticky: false,
+        vibrate: true,
+    }
+})
 
 export function clearLocalNotification() {
     return AsyncStorage.removeItem(NOTIFICATION_KEY)

@@ -3,7 +3,6 @@ import { Text, View, StyleSheet } from 'react-native';
 import { getDeck, clearLocalNotification, setLocalNotification } from '../utils/api';
 import { orange } from '../utils/colors';
 import TextButton from '../components/TextButton';
-import { NavigationActions } from 'react-navigation';
 
 export default class Questions extends Component {
     state = {
@@ -107,7 +106,7 @@ export default class Questions extends Component {
                                         <Text
                                             style={styles.shiftView}
                                             onPress={() => this.setState({ viewAnswer: !this.state.viewAnswer })}>
-                                            View Answer
+                                            Show Answer
                                 </Text>
                                     </View>
                                     :
@@ -118,22 +117,22 @@ export default class Questions extends Component {
                                         <Text
                                             style={styles.shiftView}
                                             onPress={() => this.setState({ viewAnswer: !this.state.viewAnswer })}>
-                                            View Question
+                                            Show Question
                                 </Text>
                                     </View>
                             }
                             <View style={styles.buttons}>
                                 <TextButton onPress={this.correct}>
-                                    Correct
+                                    Correct!
                             </TextButton>
                                 <TextButton onPress={this.incorrect}>
-                                    Incorrect
+                                    Incorrect.
                             </TextButton>
                             </View>
                         </View>
                         :
                         <View style={styles.score}>
-                            <Text style={styles.text}>Your score was:</Text>
+                            <Text style={styles.text}>Your score is:</Text>
                             <Text style={styles.text}>
                                 {(this.state.totalScore * 100 / numberOfCards).toFixed(2)}%
                             </Text>
