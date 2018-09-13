@@ -21,14 +21,9 @@ class AddCard extends Component {
             }
             this.props.dispatch(addCard(title, card));
             addCardToDeck(title, card);
-            this.props.navigation.dispatch(NavigationActions.navigate({
-                routeName: 'DeckDetail',
-                params: {
-                    title: title,
-                },
-            }))
+            this.props.navigation.goBack();
         } else {
-            Alert.alert('You need to enter a question and an answer!');
+            Alert.alert('You need both a question and an answer!');
         }
     }
 

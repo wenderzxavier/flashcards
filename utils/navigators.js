@@ -1,12 +1,13 @@
 import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
- import NewDeck from '../views/NewDeck';
+import NewDeck from '../views/NewDeck';
 import DeckOverview from '../views/DeckOverview';
 import DeckDetail from '../views/DeckDetail';
 import AddCard from '../views/AddCard';
 import Questions from '../views/Questions';
- const Tabs = TabNavigator({
+
+const Tabs = TabNavigator({
     DeckOverview: {
         screen: DeckOverview,
         navigationOptions: {
@@ -26,7 +27,8 @@ import Questions from '../views/Questions';
         header: null
     },
 });
- export const MainNavigator = StackNavigator({
+
+export const MainNavigator = StackNavigator({
     Home: {
         screen: Tabs,
     },
@@ -39,4 +41,4 @@ import Questions from '../views/Questions';
     Questions: {
         screen: Questions,
     }
-}); 
+});
